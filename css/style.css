@@ -12,9 +12,10 @@ body {
                         "main main"
                         "foot foot";
     width: 100%;
+    height:100vh;
 }
 
-#art {
+#art, .productos {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -120,4 +121,74 @@ footer {
     background-color: aliceblue;
     border-radius: 5px;
     box-shadow: 10px 5px 5px black;
+}
+
+
+
+/* ESTILOS DEL CARRITO */
+
+
+#carrito {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#carrito h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada item del carrito */
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.carrito-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.carrito-item p {
+    margin: 0;
+    color: #666;
+}
+
+.carrito-item button {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carrito-item button:hover {
+    background-color: #ff4b4b;
+}
+
+/* Estilo para el botón de finalizar compra */
+.finalizar-compra {
+    display: block;
+    width: 100%;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.finalizar-compra:hover {
+    background-color: #45a049;
 }
