@@ -1,8 +1,10 @@
-const url = window.location.href;
+const url = window.location.pathname;
 const productos = document.querySelector(".productos");
 const API = "https://fakestoreapi.com/products";
-const INDEX = "http://127.0.0.1:5500/index.html";
+const INDEX = "/index.html";
+const GIT = "/tuMercado/index.html";
 
+console.log(url)
 const options = {method: 'GET', headers: {accept: 'application/json'}};
 const mostrarProductos = () => {
     // Esta función evalua en que pagina se encuentra, de esta forma renderiza una vista o otra con los datos consumidos desde la API)
@@ -10,7 +12,7 @@ const mostrarProductos = () => {
     .then(res=>res.json())
     // .then(json=>console.log(json))
     .then(res => {
-        if (url === INDEX) { 
+        if (url === INDEX || url === GIT || url === "/tuMercado/" ) { 
             res.map((producto) => { productos.innerHTML += 
                 `<div class="articulo">
                     <img src="${producto.image}" alt="${producto.title}"/>
