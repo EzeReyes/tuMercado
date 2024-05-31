@@ -192,3 +192,112 @@ footer {
 .finalizar-compra:hover {
     background-color: #45a049;
 }
+
+.button, .imgCruz {
+    display: none;
+}
+
+header svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+
+header li {
+    margin: 0 0.5rem;
+    list-style: none;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    color: white;
+}
+
+
+@media (min-width:400px) and (max-width:700px) {
+    
+    header {
+        background: black;
+    }
+
+    header .logo {
+        text-decoration: none;
+        color: gray;
+    }
+
+    header .button {
+        display: block;
+        cursor: pointer;
+        fill: white;
+        margin: 10px auto;
+        border-radius: 5px;
+    }
+
+    .imgCruz {
+        width: 25px;
+        height: auto;
+        background-color: black;
+        background-size: cover;
+        display: none;
+        margin: 10px;
+        position:absolute;
+    }
+
+    header .nav {
+        width: 100%;
+        /* display: none; */
+        height: 0;
+        overflow: hidden;
+        transition: all .5s ease;
+        display: flex;
+        flex-wrap: column nowrap;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    header .nav.activo {
+        /* display: block; */
+        height: auto;
+        pointer-events: auto;
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+
+    header li {
+        margin: 1rem 0;
+    }
+
+    header a {
+        text-decoration: none;
+        color: gray;
+    }
+    
+    header a:hover {
+        color: white;
+    }
+
+    body {
+        display: grid;
+        grid-template-areas: "head"
+                            "main"
+                            "foot";
+        width: 100%;
+        height:100vh;
+    }
+
+    #art, .productos {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        gap: 10px;
+    }
+
+}

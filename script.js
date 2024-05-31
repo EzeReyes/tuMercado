@@ -31,3 +31,27 @@ const mostrarProductos = () => {
 }
 
 mostrarProductos()
+
+// Menu Hamburguesa
+
+const button = document.querySelector('.button')
+const nav = document.querySelector('.nav')
+const imgCruz = document.querySelector('.imgCruz')
+
+const opacidad = () => {
+    if (nav.classList.contains('activo')) { button.style.opacity = 0;
+        imgCruz.style.display = "block"
+        } else { button.style.opacity = 1;imgCruz.style.display = "none"
+    };
+}
+
+button.addEventListener('click', () => {
+    nav.classList.toggle('activo')
+    opacidad()
+})
+
+imgCruz.addEventListener('click', () => {
+    nav.classList.toggle('activo')
+    opacidad()
+    titulo()
+})
