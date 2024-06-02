@@ -285,8 +285,6 @@ header a:hover {
         grid-template-areas: "head"
                             "main"
                             "foot";
-        width: 100%;
-        height:100vh;
     }
 
     #art, .productos {
