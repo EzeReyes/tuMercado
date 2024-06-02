@@ -39,9 +39,9 @@ const nav = document.querySelector('.nav')
 const imgCruz = document.querySelector('.imgCruz')
 
 const opacidad = () => {
-    if (nav.classList.contains('activo')) { button.style.opacity = 0;
+    if (nav.classList.contains('activo')) { button.style.display = "none";
         imgCruz.style.display = "block"
-        } else { button.style.opacity = 1;imgCruz.style.display = "none"
+        } else { button.style.display = "block";imgCruz.style.display = "none"
     };
 }
 
