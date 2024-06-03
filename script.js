@@ -55,24 +55,31 @@ const getProductIdFromUrl = () => {
 };
 
 const irADetalle = (id) => {
+    if (url === '/pages/item.html') {
     fetch(`${API}/${id}`, options)
     .then(res => res.json())
     .then(producto => {
-        const productDetailDiv = document.querySelector('.productos');
+        const productDetailDiv = document.querySelector('.gridItem');
         const productItem = document.createElement('div');
-        productItem.classList.add('articulo');
+        productItem.classList.add('flexItem');
 
         productItem.innerHTML = `
+            <div class="item">
             <h2>${producto.title}</h2>
             <img src="${producto.image}" alt="${producto.title}"/>
+            <h3>Precio: ${producto.price}</h3>
+            <button>Añadir al Carrito</button>
+            </div>
+            <div class="itemDescription">
             <p>${producto.description}</p>
-            <p>Precio: ${producto.price}</p>
+            </div>
         `;
 
         productDetailDiv.appendChild(productItem);
     })
     .catch(error => console.error('Error al obtener el detalle del producto:', error));
 };
+}
 
 const productId = getProductIdFromUrl();
 if (productId) {

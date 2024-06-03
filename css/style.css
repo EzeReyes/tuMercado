@@ -19,6 +19,7 @@ body {
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     gap: 10px;
+    margin: 1rem;
 }
 
 .titular {
@@ -37,13 +38,14 @@ body {
     justify-content: space-around;
     align-items: center;
     text-align: center;
+    border: 1px solid #000;
 }
 
 
 
 .articulo img {
     height: 8rem;
-    width: auto;
+    width: 8rem;
 }
 
 
@@ -213,7 +215,56 @@ header a:hover {
     color: white;
 }
 
+.gridItem {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin: 2rem;
+}
 
+.flexItem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    width: 25rem;
+    height: 30rem;
+    background-color: rgba(77, 88, 88, 0.151);
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+    border: 1px solid #000;
+    padding: 1rem;
+}
+
+.item img {
+    height: 15rem;
+    width: 15rem;
+}
+
+.itemDescription {
+    display: flex;
+    width: 40rem;
+    height: auto;
+    background-color: rgba(77, 88, 88, 0.151);
+    color: #000;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #000;
+}
+
+.tituloItem {
+    margin: 1rem;
+    text-align: center;
+}
 @media (min-width:350px) and (max-width:750px) {
     
     header {
