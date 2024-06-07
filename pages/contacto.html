@@ -9,7 +9,7 @@
 </head>
 <header class="header">
     <img class="imgCruz" src="../images/x-symbol-svgrepo-com.svg" alt="cruxSvg"/>
-    <button class="button">
+    <button class="buttonMenu">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
@@ -33,21 +33,24 @@
 </header>
 <body>
     <main>
-        <section>
-            <h2>Contacto</h2>
-            <form action="#" method="#">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+        <section class="contacto">
+            <div>    
+                <h2>Contacto</h2>
+                <form action="#" method="#">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </section>
     </main>
     <footer>
     <span>©️Tu Mercado 2024</span>
-    </footer>
+</footer>
+<script src="../script.js"></script>
 </body>
 </html>

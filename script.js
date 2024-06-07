@@ -22,11 +22,11 @@ const mostrarProductos = () => {
                 productItem.innerHTML = `
                     <img src="${producto.image}" alt="${producto.title}"/>
                     <h6>${producto.title}</h6>
-                    <button>Ver Detalle</button>
+                    <button class="btnDetail" >Ver Detalle</button>
                 `;
 
-                const button = productItem.querySelector('button');
-                button.addEventListener('click', () => handleChange(producto.id));
+                const buttonDetail = productItem.querySelector('.btnDetail');
+                buttonDetail.addEventListener('click', () => handleChange(producto.id));
 
                 productos.appendChild(productItem);
             });
@@ -54,8 +54,9 @@ const getProductIdFromUrl = () => {
     return params.get('id');
 };
 
+
 const irADetalle = (id) => {
-    if (url === '/pages/item.html') {
+    if (window.location.search === `?id=${id}`) {
     fetch(`${API}/${id}`, options)
     .then(res => res.json())
     .then(producto => {
@@ -90,7 +91,7 @@ if (productId) {
 
 // Menu Hamburguesa
 
-const button = document.querySelector('.button');
+const button = document.querySelector('.buttonMenu');
 const nav = document.querySelector('.nav');
 const imgCruz = document.querySelector('.imgCruz');
 
@@ -103,3 +104,14 @@ const opacidad = () => {
         imgCruz.style.display = "none";
     }
 };
+
+button.addEventListener('click', () => {
+    nav.classList.toggle('activo')
+    opacidad()
+})
+
+imgCruz.addEventListener('click', () => {
+    nav.classList.toggle('activo')
+    opacidad()
+    titulo()
+})

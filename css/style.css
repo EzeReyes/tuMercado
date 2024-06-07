@@ -23,7 +23,7 @@ body {
 }
 
 .titular {
-    background-color: black;
+    background: linear-gradient(180deg,#29f4ff -46.11%,#5257ff 151.97%);
     color: white;
     text-align: center;
 }
@@ -65,7 +65,7 @@ ul {
     font-weight: bolder;
 }
 
-li a {
+header a {
     text-decoration: none;
     color: white;
 }
@@ -81,7 +81,7 @@ li a {
 
 main {
     grid-area: main;
-    background-color: #DDE3C4;
+    background:linear-gradient(180deg, #abd3d521 -46.11%, #5257ff 151.97%);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -112,7 +112,7 @@ footer {
 .inicieORegistre {
     margin: 5rem;
     padding: 10px;
-    height: 7rem;
+    width: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,6 +125,11 @@ footer {
 
 /* ESTILOS DEL CARRITO */
 
+.mainCarrito {
+    flex-direction: row;
+    justify-content: center;
+    height: 80vh;
+}
 
 #carrito {
     background-color: #fff;
@@ -191,7 +196,7 @@ footer {
     background-color: #45a049;
 }
 
-.button, .imgCruz {
+button, .imgCruz {
     display: none;
 }
 
@@ -206,13 +211,8 @@ header li {
     list-style: none;
 }
 
-header a {
-    text-decoration: none;
-    color: black;
-}
-
 header a:hover {
-    color: white;
+    text-shadow: 1px 1px 10px #29f4ff;
 }
 
 .gridItem {
@@ -265,6 +265,63 @@ header a:hover {
     margin: 1rem;
     text-align: center;
 }
+
+
+/* SOBRE NOSOTROS */
+.sobre-nosotros {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.sobre-nosotros-h1 {
+    width: 30rem;
+    height: auto;
+    margin: 2rem 0;
+    text-align: end;
+    font-size: 2rem;
+}
+
+.mision {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    text-align: justify;
+}
+
+.imgMercado {
+    width: 750px;
+    height: 394px;
+    border-radius: 5%;
+}
+
+.historia {
+    margin: 2rem;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 2px;
+}
+
+.equipo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.contacto {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 80vh;
+}
+
+.btnDetail {
+    display: block;
+}
+
 @media (min-width:350px) and (max-width:750px) {
     
     header {
@@ -277,8 +334,8 @@ header a:hover {
         color: gray;
     }
 
-    header .button {
-        display: block;
+    header .buttonMenu {
+        display: none;
         cursor: pointer;
         fill: white;
         margin: 10px auto;
@@ -290,7 +347,7 @@ header a:hover {
         height: auto;
         background-color: black;
         background-size: cover;
-        display: none;
+        display: block;
         margin: 10px;
         position:absolute;
     }
@@ -346,4 +403,38 @@ header a:hover {
         gap: 10px;
     }
 
+}
+
+.contacto, .mainCarrito {
+    height: auto;
+}
+
+.mision {
+    display: block;
+}
+
+.equipo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+    justify-items: center;
+    gap: 1rem;
+}
+
+.imgMercado {
+margin-top: 2rem;
+width: 30rem;
+height: auto;
+}
+
+.inicieORegistre {
+    width: auto;
+}
+
+.flexItem {
+    flex-direction: column;
+}
+
+.itemDescription {
+    width: auto;
 }
