@@ -22,7 +22,7 @@ const mostrarProductos = () => {
                 productItem.innerHTML = `
                     <img src="${producto.image}" alt="${producto.title}"/>
                     <h6>${producto.title}</h6>
-                    <button class="btnDetail" >Ver Detalle</button>
+                    <a href="./pages/item.html?id=${producto.id}" class="btnDetail">Ver Detalle</a>
                 `;
 
                 const buttonDetail = productItem.querySelector('.btnDetail');
@@ -56,7 +56,6 @@ const getProductIdFromUrl = () => {
 
 
 const irADetalle = (id) => {
-    if (url === '/tuMercado/pages/item.html' || url === '/pages/item.html') {
     fetch(`${API}/${id}`, options)
     .then(res => res.json())
     .then(producto => {
@@ -80,7 +79,6 @@ const irADetalle = (id) => {
     })
     .catch(error => console.error('Error al obtener el detalle del producto:', error));
 };
-}
 
 const productId = getProductIdFromUrl();
 if (productId) {
