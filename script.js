@@ -56,7 +56,6 @@ const getProductIdFromUrl = () => {
 
 
 const irADetalle = (id) => {
-    if (window.location.search === `?id=${id}`) {
     fetch(`${API}/${id}`, options)
     .then(res => res.json())
     .then(producto => {
@@ -80,7 +79,7 @@ const irADetalle = (id) => {
     })
     .catch(error => console.error('Error al obtener el detalle del producto:', error));
 };
-}
+
 
 const productId = getProductIdFromUrl();
 if (productId) {
