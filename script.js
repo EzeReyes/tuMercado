@@ -21,8 +21,7 @@ const mostrarProductos = () => {
 
                 productItem.innerHTML = `
                     <img src="${producto.image}" alt="${producto.title}"/>
-                    <h6>${producto.title}</h6>
-                    <a href="./pages/item.html?id=${producto.id}" class="btnDetail">Ver Detalle</a>
+                    <a href="./pages/item.html?id=${producto.id}" class="btnDetail"><h6>${producto.title}</h6></a>
                 `;
 
                 const buttonDetail = productItem.querySelector('.btnDetail');
@@ -37,12 +36,15 @@ const mostrarProductos = () => {
 
                 productItem.innerHTML = `
                     <img src="${producto.image}" alt="${producto.title}"/>
-                    <h6>${producto.title}</h6>
+                    <a href="/pages/item.html?id=${producto.id}" class="btnDetail"><h6>${producto.title}</h6></a>
                     <h6>Precio: ${producto.price}</h6>
-                    <button>Añadir al Carrito</button>
+                    <button class="buttonCarrito">Añadir al Carrito</button>
                 `;
-
                 productos.appendChild(productItem);
+
+                const buttonCarrito = productItem.querySelector('.buttonCarrito');
+                buttonCarrito.addEventListener('click', () => agregarAlCarrito(producto));
+
             });
         }
     })
@@ -68,7 +70,7 @@ const irADetalle = (id) => {
             <h2>${producto.title}</h2>
             <img src="${producto.image}" alt="${producto.title}"/>
             <h3>Precio: ${producto.price}</h3>
-            <button>Añadir al Carrito</button>
+            <button class="buttonCarrito">Añadir al Carrito</button>
             </div>
             <div class="itemDescription">
             <p>${producto.description}</p>
@@ -76,6 +78,10 @@ const irADetalle = (id) => {
         `;
 
         productDetailDiv.appendChild(productItem);
+
+        const buttonCarrito = productItem.querySelector('.buttonCarrito');
+        buttonCarrito.addEventListener('click', () => agregarAlCarrito(producto));
+
     })
     .catch(error => console.error('Error al obtener el detalle del producto:', error));
 };
@@ -113,3 +119,95 @@ imgCruz.addEventListener('click', () => {
     opacidad()
     titulo()
 })
+
+// guardamos el carro en local storage
+const guardarCarritoEnLocalStorage = (carrito) => {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+};
+
+// obtenemos el carro de localstorage
+const obtenerCarritoDeLocalStorage = () => {
+    const carritoGuardado = localStorage.getItem('carrito');
+    return carritoGuardado ? JSON.parse(carritoGuardado) : [];
+};
+
+
+let carrito = obtenerCarritoDeLocalStorage();
+
+// AGREGAR PRODUCTOS AL CARRITO ()
+const agregarAlCarrito = (carro) => {
+
+    // verifica si existe el elemento
+    const productoExiste = carrito.find(elemento => 
+        elemento.nombre === `${carro.title}`)
+
+        
+        if (productoExiste) {
+            console.log('El producto existe');
+            // Incrementar la cantidad del producto existente
+            productoExiste.cantidad += carro.cantidad ? carro.cantidad : 1;
+        } else {
+            console.log('El producto no existe');
+            // Agregar el nuevo producto al carrito
+            const nuevoProducto = {
+                nombre: carro.title,
+                precio: carro.price,
+                imagen: carro.image,
+                cantidad: carro.quantity ? carro.quantity : 1
+            };
+            carrito.push(nuevoProducto);
+            guardarCarritoEnLocalStorage(carrito);
+        }
+    }
+
+    
+const carritoDeCompra = document.querySelector('.carritoDeCompra');
+
+// Agrega productos al array carrito, previo a realizar la subida a LocalStorage
+const productosEnCarrito = (productos) => {
+    productos.forEach(producto => {
+        const itemCarrito = document.createElement('div');
+        itemCarrito.classList.add('carrito-item');    
+        itemCarrito.innerHTML = `
+            <img class="imgItem" src=${producto.imagen} alt=${producto.nombre}/>
+            <h3>${producto.nombre}</h3>
+            <h3>${producto.precio}</h3>
+            <h3>${producto.cantidad}</h3>
+            <button class="buttonEliminar">Eliminar</button>
+        `;
+        carritoDeCompra.appendChild(itemCarrito);
+
+        const buttonEliminar = itemCarrito.querySelector('.buttonEliminar');
+        buttonEliminar.addEventListener('click', () => eliminarUnProducto(producto.nombre));
+
+})
+}
+productosEnCarrito(carrito)
+
+// Se encarga de actualizar el carrito, es decir limpiarlo
+const limpiarCarro = () => {
+    itemCarrito = document.querySelector('.carrito-item');
+    itemCarrito.innerHTML = ``;
+    carritoDeCompra.appendChild(itemCarrito)
+}
+
+// Filtra el producto por nombre y lo elimina
+const eliminarUnProducto = (product) => {
+    elementoEliminado = carrito.indexOf(product.nombre)
+    carrito.splice(elementoEliminado, 1)
+    limpiarCarro()
+    guardarCarritoEnLocalStorage(carrito)
+    carrito = obtenerCarritoDeLocalStorage()
+}
+
+// Agrega numero de elementos en barra de navegación
+    const numeroCompra = (p) => {
+        const nro = document.querySelector('.numero');
+        const h5 = document.createElement('h5');
+        h5.innerHTML = `
+        ${p.length}
+        `;
+
+    nro.appendChild(h5);
+    }
+    numeroCompra(carrito)
