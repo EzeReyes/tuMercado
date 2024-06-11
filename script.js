@@ -36,7 +36,7 @@ const mostrarProductos = () => {
 
                 productItem.innerHTML = `
                     <img src="${producto.image}" alt="${producto.title}"/>
-                    <a href="/pages/item.html?id=${producto.id}" class="btnDetail"><h6>${producto.title}</h6></a>
+                    <a href="/tuMercado/pages/item.html?id=${producto.id}" class="btnDetail"><h6>${producto.title}</h6></a>
                     <h6>Precio: ${producto.price}</h6>
                     <button class="buttonCarrito">Añadir al Carrito</button>
                 `;
